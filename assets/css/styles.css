@@ -1,0 +1,111 @@
+:root {
+  --pink: #ffc0cb;
+  --pink-deep: #ff9db0;
+  --white: #ffffff;
+  --rose: #d4a5a5;
+  --text: #3b2a2a;
+}
+
+* { box-sizing: border-box; }
+body.theme-pink {
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--pink), var(--white));
+  background-attachment: fixed;
+}
+
+.cursive { 
+  font-family: 'Parisienne', 'Great Vibes', 'Dancing Script', cursive; 
+  letter-spacing: 0.5px;
+  color: #a54b5b;
+}
+
+.site-header, .site-footer {
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.6);
+  border-bottom: 1px solid rgba(212,165,165,0.3);
+  padding: 12px 24px;
+}
+
+.nav { display: flex; align-items: center; justify-content: space-between; }
+.nav ul { list-style: none; display: flex; gap: 16px; padding: 0; margin: 0; }
+.nav a { text-decoration: none; color: var(--text); padding: 8px 12px; border-radius: 8px; }
+.nav a.active, .nav a.cta { background: var(--white); border: 1px solid var(--rose); }
+.logo { font-weight: 700; }
+
+.hero { min-height: calc(100vh - 120px); display: grid; place-items: center; text-align: center; padding: 24px; }
+.sub { opacity: 0.8; }
+
+.btn { 
+  background: var(--white); 
+  color: var(--text); 
+  border: 1px solid var(--rose);
+  padding: 10px 16px; 
+  border-radius: 12px; 
+  cursor: pointer; 
+}
+.btn.primary { background: var(--pink-deep); color: #fff; border: none; }
+.hidden { display: none; }
+
+/* Cake */
+.cake-section { margin-top: 24px; }
+.cake { position: relative; width: 220px; height: 220px; margin: 0 auto; }
+.tier { position: absolute; left: 50%; transform: translateX(-50%); border-radius: 12px; background: var(--white); border: 2px solid var(--rose); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.tier1 { bottom: 0; width: 220px; height: 80px; }
+.tier2 { bottom: 60px; width: 170px; height: 70px; }
+.tier3 { bottom: 120px; width: 120px; height: 60px; }
+.candle { position: absolute; left: 50%; bottom: 190px; width: 12px; height: 40px; transform: translateX(-50%); background: #ffd6e0; border: 2px solid var(--rose); border-radius: 6px; }
+.flame { position: absolute; left: 50%; top: -14px; width: 12px; height: 18px; transform: translateX(-50%); background: radial-gradient(circle at 50% 60%, #ffd966, #ff6f61); border-radius: 50% 50% 50% 50%/60% 60% 40% 40%; animation: flicker 1s infinite; }
+@keyframes flicker { 0%,100%{ transform: translateX(-50%) scale(1); } 50%{ transform: translateX(-50%) scale(1.1);} }
+
+.slice { position: absolute; bottom: 0; left: 0; width: 0; height: 80px; background: #ffeef2; border-right: 2px solid var(--rose); transition: width 0.8s ease; }
+
+/* Confetti */
+.confetti { position: fixed; inset: 0; pointer-events: none; }
+.confetti::before, .confetti::after {
+  content: ''; position: absolute; width: 100%; height: 100%;
+  background-image: radial-gradient(circle, #ff9db0 2px, transparent 2px);
+  background-size: 20px 20px; animation: confetti-fall 1.8s ease-in-out forwards;
+}
+@keyframes confetti-fall { 
+  0%{ transform: translateY(-20%); opacity: 0;}
+  100%{ transform: translateY(0%); opacity: 1;}
+}
+
+/* Timeline */
+.timeline { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+.timeline .line { position: fixed; left: 50%; top: 0; width: 4px; height: 100vh; transform: translateX(-50%); background: linear-gradient(var(--white), var(--pink)); filter: drop-shadow(0 0 8px #ff9db0); }
+.milestone { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 60px 0; align-items: center; }
+.milestone .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--white); border: 2px solid var(--rose); box-shadow: 0 0 12px #ff9db0; justify-self: center; }
+.milestone .card { background: rgba(255,255,255,0.8); border: 1px solid rgba(212,165,165,0.4); border-radius: 16px; padding: 16px; backdrop-filter: blur(6px); }
+.milestone .card img { width: 100%; border-radius: 12px; }
+.milestone:nth-child(even) .card { grid-column: 2; }
+.milestone.end .card.center { text-align: center; }
+#fireworks { height: 240px; margin-top: 12px; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.6), transparent 60%); }
+
+/* Gift */
+.gift { max-width: 900px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+.gift-box { margin-top: 24px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,165,165,0.4); border-radius: 20px; padding: 24px; position: relative; overflow: hidden;}
+.balloons .balloon { position: absolute; width: 24px; height: 32px; background: var(--pink-deep); border-radius: 50% 50% 50% 50%/60% 60% 40% 40%; animation: float 6s ease-in-out infinite; }
+.balloons .b1 { left: 10%; bottom: -20px; animation-delay: 0s; }
+.balloons .b2 { left: 50%; bottom: -30px; animation-delay: 1s; }
+.balloons .b3 { left: 80%; bottom: -25px; animation-delay: 2s; }
+@keyframes float { 0%{ transform: translateY(0);} 50%{ transform: translateY(-40px);} 100%{ transform: translateY(0);} }
+
+.video-center video { width: 100%; max-width: 720px; border-radius: 16px; border: 2px solid var(--rose); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
+.letter .paper { background: #fffafc; border: 1px solid rgba(212,165,165,0.4); border-radius: 16px; padding: 20px; margin-top: 16px; text-align: left; line-height: 1.7; }
+
+/* Story */
+.story { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+.story-block { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; margin: 40px 0; }
+.story-block img { width: 100%; border-radius: 14px; border: 2px solid var(--rose); }
+
+/* Gallery */
+.gallery { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.grid img { width: 100%; border-radius: 14px; cursor: pointer; border: 2px solid var(--rose); transition: transform 0.2s ease; }
+.grid img:hover { transform: scale(1.02); }
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: grid; place-items: center; }
+#lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 16px; }
+#lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 28px; color: #fff; cursor: pointer; }
