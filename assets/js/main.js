@@ -16,7 +16,6 @@ cutBtn?.addEventListener('click', () => {
   setTimeout(() => confetti.classList.add('hidden'), 2000);
 });
 
-// Lightbox
 const gridImgs = document.querySelectorAll('.grid img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
@@ -26,9 +25,18 @@ gridImgs.forEach(img => {
   img.addEventListener('click', () => {
     lightboxImg.src = img.src;
     lightbox.classList.remove('hidden');
+    lightbox.style.display = 'grid'; // important!
   });
 });
-lightboxClose?.addEventListener('click', () => lightbox.classList.add('hidden'));
+
+lightboxClose?.addEventListener('click', () => {
+  lightbox.classList.add('hidden');
+  lightbox.style.display = 'none';
+});
+
 lightbox?.addEventListener('click', (e) => {
-  if (e.target === lightbox) lightbox.classList.add('hidden');
+  if (e.target === lightbox) {
+    lightbox.classList.add('hidden');
+    lightbox.style.display = 'none';
+  }
 });
