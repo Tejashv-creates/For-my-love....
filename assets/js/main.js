@@ -16,6 +16,7 @@ cutBtn?.addEventListener('click', () => {
   setTimeout(() => confetti.classList.add('hidden'), 2000);
 });
 
+// Lightbox
 const gridImgs = document.querySelectorAll('.grid img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
